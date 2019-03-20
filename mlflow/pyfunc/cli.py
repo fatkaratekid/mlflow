@@ -23,7 +23,7 @@ def _rerun_in_conda(conda_env_path):
     conda_env_name = _get_or_create_conda_env(conda_env_path)
     activate_path = _get_conda_bin_executable("activate")
     commands = []
-    commands.append("source {} {}".format(activate_path, conda_env_name))
+    commands.append("conda {} {}".format(activate_path, conda_env_name))
     safe_argv = [shlex_quote(arg) for arg in sys.argv]
     commands.append(" ".join(safe_argv) + " --no-conda")
     commandline = " && ".join(commands)
